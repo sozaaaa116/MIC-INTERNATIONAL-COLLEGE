@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Exam Portal | Home</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-bg" aria-hidden="true">
+      <div class="blob blob-a"></div>
+      <div class="blob blob-b"></div>
+      <div class="grid-noise"></div>
+    </div>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand compact">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">Exam Portal</div>
+            <div class="brand-subtitle">Home</div>
+          </div>
+        </div>
+        <nav class="nav-pills" aria-label="Primary">
+          <a class="nav-pill active" href="index.html">Home</a>
+          <a class="nav-pill" href="#features">Features</a>
+          <a class="nav-pill" href="about.html">About</a>
+          <a class="nav-pill" href="staff-login.html">Staff</a>
+          <a class="nav-pill" href="database.html">Principal</a>
+        </nav>
+        <div class="topbar-actions">
+          <a class="btn btn-ghost" href="login.html">Log In</a>
+          <a class="btn btn-primary" href="register.html">Sign Up</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero card">
+        <div class="hero-inner">
+          <div class="hero-visual">
+            <img src="images/moolampilly_college.png" alt="Moolampilly International College" class="hero-photo" loading="lazy" />
+          </div>
+
+          <div class="hero-content">
+            <div class="hero-kicker">Exam Portal</div>
+            <h1 class="hero-title">Welcome To MIC Exam Portal</h1>
+            <p class="hero-copy">A clean portal built for exam registration, exam results, and student profile only.</p>
+
+            <div class="hero-cta" id="homeCta">
+              <a class="btn btn-primary" href="register.html">Create Account</a>
+              <a class="btn" href="login.html">Student Login</a>
+            </div>
+
+            <div class="hero-cta" id="homeContinue" hidden>
+              <a class="btn btn-primary" href="dashboard.html">Continue</a>
+              <button class="btn" id="homeLogoutBtn" type="button">Logout</button>
+            </div>
+
+            <div class="hero-meta muted" id="homeMeta">Student portal access</div>
+
+            <div class="stat-row" aria-label="Key stats">
+              <div class="stat2">
+                <div class="stat2-num">3+</div>
+                <div class="stat2-label">Student Modules</div>
+              </div>
+              <div class="stat2">
+                <div class="stat2-num">20+</div>
+                <div class="stat2-label">Exam Sessions</div>
+              </div>
+              <div class="stat2">
+                <div class="stat2-num">300K+</div>
+                <div class="stat2-label">Secure Actions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-3" id="features">
+        <article class="card pad">
+          <div class="feature-title">Exam Registration</div>
+          <div class="hint">Students can register for available exams and track registration status.</div>
+        </article>
+        <article class="card pad">
+          <div class="feature-title">Exam Result</div>
+          <div class="hint">Students can view published results once staff publishes them.</div>
+        </article>
+        <article class="card pad">
+          <div class="feature-title">Student Profile</div>
+          <div class="hint">Students can update their profile details in the dashboard.</div>
+        </article>
+      </section>
+
+      <section class="card pad">
+        <div class="row">
+          <div>
+            <div class="feature-title">Quick Links</div>
+            <div class="hint">Use these pages to access the portal.</div>
+          </div>
+        </div>
+        <div class="quick-links">
+          <a class="pill" href="register.html">Student Registration</a>
+          <a class="pill" href="login.html">Student Login</a>
+          <a class="pill" href="dashboard.html">Student Dashboard</a>
+          <a class="pill" href="staff-login.html">Staff Login</a>
+          <a class="pill" href="staff-dashboard.html">Staff Dashboard</a>
+          <a class="pill" href="database.html">Principal Database</a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="muted">
+          Demo project: data is stored in your browser using LocalStorage.
+        </div>
+      </footer>
+    </main>
+
+    <script src="assets/app.js"></script>
+    <script>
+      (function () {
+        try {
+          const session = JSON.parse(localStorage.getItem("ep_session_v1") || "null");
+          const users = JSON.parse(localStorage.getItem("ep_users_v1") || "[]");
+          const cta = document.getElementById("homeCta");
+          const cont = document.getElementById("homeContinue");
+          const meta = document.getElementById("homeMeta");
+          const logoutBtn = document.getElementById("homeLogoutBtn");
+
+          const user = session && session.userId ? users.find((u) => u.id === session.userId) : null;
+          if (user && cont && cta) {
+            cta.hidden = true;
+            cont.hidden = false;
+            if (meta) meta.textContent = `Signed in as ${user.fullName} (${user.studentId})`;
+          }
+
+          if (logoutBtn) {
+            logoutBtn.addEventListener("click", () => {
+              localStorage.removeItem("ep_session_v1");
+              window.location.reload();
+            });
+          }
+        } catch {
+          // ignore
+        }
+      })();
+    </script>
+  </body>
+</html>
