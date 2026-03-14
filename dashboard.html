@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Dashboard | Exam Portal</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-bg" aria-hidden="true">
+      <div class="blob blob-a"></div>
+      <div class="blob blob-b"></div>
+      <div class="grid-noise"></div>
+    </div>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand compact">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title"><a href="index.html" style="color:inherit; text-decoration:none">Exam Portal</a></div>
+            <div class="brand-subtitle" id="whoami">Student</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button id="logoutBtn" class="btn btn-ghost" type="button">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dash">
+      <aside class="nav">
+        <button class="nav-item active" type="button" data-view="registration">
+          <span class="nav-kicker">Exam</span>
+          <span class="nav-title">Registration</span>
+        </button>
+        <button class="nav-item" type="button" data-view="results">
+          <span class="nav-kicker">Exam</span>
+          <span class="nav-title">Result</span>
+        </button>
+        <button class="nav-item" type="button" data-view="profile">
+          <span class="nav-kicker">Student</span>
+          <span class="nav-title">Profile</span>
+        </button>
+      </aside>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h1 id="panelTitle" class="panel-title">Exam Registration</h1>
+            <div id="panelSubtitle" class="panel-subtitle">Register for available exams and track status.</div>
+          </div>
+          <div class="panel-head-actions" id="panelActions"></div>
+        </div>
+
+        <div id="panelBody" class="panel-body"></div>
+      </section>
+    </main>
+
+    <script src="assets/app.js"></script>
+    <script>
+      ExamPortal.guardPrivatePage();
+      ExamPortal.bindDashboardPage();
+    </script>
+  </body>
+</html>

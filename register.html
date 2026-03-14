@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Registration | Exam Portal</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="card auth-card">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">Exam Portal</div>
+            <div class="brand-subtitle">Student Registration</div>
+          </div>
+        </div>
+
+        <form id="registerForm" class="form" novalidate>
+          <div class="grid-2">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" autocomplete="name" required placeholder="e.g. Ramee Kumar" />
+            </div>
+            <div class="field">
+              <label for="studentId">Student ID</label>
+              <input id="studentId" name="studentId" autocomplete="off" required placeholder="e.g. 23CS104" />
+              <div class="hint">Student ID must be unique.</div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="e.g. you@example.com" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                required
+                placeholder="e.g. +91 98765 43210"
+              />
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="dob">Date of Birth</label>
+              <input id="dob" name="dob" type="date" required />
+              <div class="hint">Used for your student profile.</div>
+            </div>
+            <div class="field">
+              <label for="photo">Photo (Optional)</label>
+              <input id="photo" name="photo" type="file" accept="image/*" />
+              <div class="hint">Upload a small image (max 300KB).</div>
+              <div id="photoPreview" class="photo-preview" hidden></div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                required
+                placeholder="At least 8 characters"
+              />
+              <div class="hint">Tip: use a password you can remember.</div>
+            </div>
+            <div class="field">
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                autocomplete="new-password"
+                required
+                placeholder="Re-enter password"
+              />
+            </div>
+          </div>
+
+          <div id="registerError" class="alert alert-danger" role="alert" hidden></div>
+          <div id="registerOk" class="alert alert-success" role="status" hidden></div>
+
+          <button class="btn btn-primary" type="submit">Create Account</button>
+
+          <div class="meta-row">
+            <a href="index.html">Home</a>
+            <span class="muted">|</span>
+            <span class="muted">Already registered?</span>
+            <a href="login.html">Go to login</a>
+          </div>
+        </form>
+
+        <div class="footer-note">This is a demo portal. Data is saved in your browser (LocalStorage).</div>
+      </section>
+    </main>
+
+    <script src="assets/app.js"></script>
+    <script>
+      ExamPortal.guardPublicPage();
+      ExamPortal.bindRegisterPage();
+    </script>
+  </body>
+</html>

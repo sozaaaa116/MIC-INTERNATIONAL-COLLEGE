@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Database | Exam Portal</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-bg" aria-hidden="true">
+      <div class="blob blob-a"></div>
+      <div class="blob blob-b"></div>
+      <div class="grid-noise"></div>
+    </div>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand compact">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">Exam Portal</div>
+            <div class="brand-subtitle">Principal Database (LocalStorage)</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <a class="btn btn-ghost" href="index.html">Home</a>
+          <a class="btn btn-ghost" href="login.html">Student Login</a>
+          <a class="btn btn-ghost" href="dashboard.html">Student Dashboard</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="dash" style="grid-template-columns: 1fr">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h1 class="panel-title">Database</h1>
+            <div class="panel-subtitle">View and export collected portal data (principal view; demo; not secure).</div>
+          </div>
+          <div class="panel-head-actions" id="dbActions"></div>
+        </div>
+        <div class="panel-body" id="dbBody"></div>
+      </section>
+    </main>
+
+    <script src="assets/app.js"></script>
+    <script>
+      ExamPortal.bindDatabasePage();
+    </script>
+  </body>
+</html>

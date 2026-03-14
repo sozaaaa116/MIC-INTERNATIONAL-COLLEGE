@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Staff Login | Exam Portal</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="card auth-card">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">Exam Portal</div>
+            <div class="brand-subtitle" id="staffModeTitle">Staff Login</div>
+          </div>
+        </div>
+
+        <form id="staffLoginForm" class="form" novalidate>
+          <div class="grid-2">
+            <div class="field">
+              <label for="staffPin" id="staffPinLabel">PIN</label>
+              <input id="staffPin" name="staffPin" type="password" required placeholder="Enter PIN" />
+              <div class="hint" id="staffPinHint">Enter your staff PIN.</div>
+            </div>
+            <div class="field" id="staffPin2Wrap">
+              <label for="staffPin2">Confirm PIN</label>
+              <input id="staffPin2" name="staffPin2" type="password" required placeholder="Confirm PIN" />
+            </div>
+          </div>
+
+          <div id="staffLoginError" class="alert alert-danger" role="alert" hidden></div>
+
+          <button class="btn btn-primary" type="submit" id="staffLoginBtn">Unlock</button>
+
+          <div class="meta-row">
+            <a href="index.html">Home</a>
+            <span class="muted">|</span>
+            <a href="login.html">Student login</a>
+            <span class="muted">|</span>
+            <a href="database.html">Principal database</a>
+          </div>
+        </form>
+
+        <div class="footer-note">This is a demo portal. Staff access is protected only by a local PIN in this browser.</div>
+      </section>
+    </main>
+
+    <script src="assets/app.js"></script>
+    <script>
+      ExamPortal.bindStaffLoginPage();
+    </script>
+  </body>
+</html>
